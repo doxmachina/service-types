@@ -3,13 +3,10 @@ name: Auto‑Update Service Types Documentation
 on:
   push:
     paths:
-      - 'schema/service-types.json'
-      - 'schema/unsupported.json'
+      'schema/*.json'
   pull_request:
     paths:
-      - 'schema/service-types.json'
-      - 'schema/unsupported.json'
-
+      'schema/*.json'
 jobs:
   regenerate-docs:
     runs-on: ubuntu-latest
@@ -19,9 +16,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Install PowerShell
-        uses: PowerShell/PowerShell-For-GitHub-Actions@v2
 
       - name: Run documentation generator
         shell: pwsh
