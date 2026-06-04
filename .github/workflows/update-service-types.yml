@@ -17,10 +17,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Run documentation generator
-        shell: pwsh
+      - name: Configure Git identity
         run: |
-          pwsh -File ./scripts/service-types-generator.ps1
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
 
       - name: Create/update auto‑update branch
         run: |
@@ -31,13 +31,19 @@ jobs:
           else
             git checkout -b $BRANCH
           fi
-
+          
+      - name: Run documentation generator
+        shell: pwsh
+        run: |
+          pwsh -File ./scripts/service-types-generator.ps1
+          
+      - name: Commit changes
+        run: |
           git add .
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
-
           git commit -m "Auto‑update: regenerate service types documentation"
 
       - name: Push branch
