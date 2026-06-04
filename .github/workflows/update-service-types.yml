@@ -1,0 +1,58 @@
+name: Auto‑Update Service Types Documentation
+
+on:
+  push:
+    paths:
+      - 'schema/*.json'
+  pull_request:
+    paths:
+      - 'schema/*.json'
+
+jobs:
+  regenerate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install PowerShell
+        uses: PowerShell/PowerShell-For-GitHub-Actions@v2
+
+      - name: Run documentation generator
+        shell: pwsh
+        run: |
+          pwsh -File ./scripts/service-types-generator.ps1
+
+      - name: Create/update auto‑update branch
+        run: |
+          BRANCH="auto/update-service-types"
+
+          if git show-ref --verify --quiet refs/heads/$BRANCH; then
+            git checkout $BRANCH
+          else
+            git checkout -b $BRANCH
+          fi
+
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Auto‑update: regenerate service types documentation"
+
+      - name: Push branch
+        run: |
+          git push origin auto/update-service-types --force
+
+      - name: Create or update PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: auto/update-service-types
+          title: "Automated Update: Service Types Documentation"
+          body: "This PR was automatically generated because the JSON schema changed. The documentation has been regenerated accordingly."
+          base: main
+          labels: auto-update
