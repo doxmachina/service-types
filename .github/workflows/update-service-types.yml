@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'schema/service-types.json'
-      - 'schema/unsupported-service-types.json'
+      - 'schema/unsupported.json'
   pull_request:
     paths:
       - 'schema/service-types.json'
