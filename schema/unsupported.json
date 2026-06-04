@@ -1,0 +1,9 @@
+{
+    "comment": "Service types excluded by Product guidelines",
+    
+    "unsupported": [
+        "STH", "NTA", "PFH", "PFZ", "CFH", "CTA", "WTA", "XF2",
+        "XF4", "XFH", "XT2", "XT4", "XTA", "XTH", "NFH", "NFZ",
+        "RT4", "RTA", "RTH", "RTZ", "RF2", "RF4", "RFH", "RFZ"
+    ]
+}
