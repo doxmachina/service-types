@@ -3,10 +3,12 @@ name: Auto‑Update Service Types Documentation
 on:
   push:
     paths:
-      - 'schema/*.json'
+      - 'schema/service-types.json'
+      - 'schema/unsupported-service-types.json'
   pull_request:
     paths:
-      - 'schema/*.json'
+      - 'schema/service-types.json'
+      - 'schema/unsupported-service-types.json'
 
 jobs:
   regenerate-docs:
