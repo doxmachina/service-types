@@ -5,7 +5,7 @@
         "P": "Precise day delivery",
         "C": "Two-day delivery",
         "W": "Any day delivery",
-        "X": "Same day / express delivery",
+        "X": "Same day / Express delivery",
         "R": "Return"
     },
     "time_slot_type": {
