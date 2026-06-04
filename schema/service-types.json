@@ -22,7 +22,7 @@
     "warehouse_models": {
         "WH": "WH",
         "SFS": "SFS",
-        "both": "WH & SFS"
+        "both": "WH and SFS"
     },
     "legacy_codes": {
         "DDD": "Defined day delivery ",
