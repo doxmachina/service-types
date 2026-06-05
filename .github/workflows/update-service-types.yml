@@ -40,6 +40,9 @@ jobs:
         run: |
           pwsh -File ./scripts/service-types-generator.ps1
           
+      - name: Show diff
+        run: git --no-pager diff --color
+
       - name: Commit changes
         run: |
           git add .
