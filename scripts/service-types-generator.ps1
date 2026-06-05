@@ -14,11 +14,11 @@
 
 # Paths
 $root         = $PSScriptRoot
-$jsonFilePath = Join-Path $root "..\schema\service-types.json"
-$mdFilePath   = Join-Path $root "..\docs\service-types.md"
+$jsonFilePath = Join-Path $root "../schema/service-types.json"
+$mdFilePath   = Join-Path $root "../docs/service-types.md"
 
 # Unsupported service types
-$unsupportedPath = Join-Path $root "..\schema\unsupported.json"
+$unsupportedPath = Join-Path $root "../schema/unsupported.json"
 $unsupportedJson = Get-Content $unsupportedPath -Raw | ConvertFrom-Json
 $unsupported = $unsupportedJson.unsupported
 
