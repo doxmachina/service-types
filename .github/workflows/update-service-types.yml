@@ -25,7 +25,7 @@ jobs:
 
       - name: Run documentation generator
         shell: pwsh
-        run: pwsh ./scripts/generate-service-table.ps1
+        run: pwsh ./scripts/service-types-generator.ps1
 
       - name: Show diff
         run: git --no-pager diff --color
