@@ -27,8 +27,7 @@ jobs:
 
       - name: Create/update auto‑update branch
         run: |
-          BRANCH="auto/update-service-types"
-
+          BRANCH="master"
           if git show-ref --verify --quiet refs/heads/$BRANCH; then
             git checkout $BRANCH
           else
