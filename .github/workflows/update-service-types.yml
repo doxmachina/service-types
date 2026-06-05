@@ -52,15 +52,15 @@ jobs:
           fi
           git commit -m "Auto‑update: regenerate service types documentation"
 
-      - name: Push branch
-        run: |
-          git push origin auto/update-service-types --force
+     # - name: Push branch
+     #   run: |
+     #     git push origin auto/update-service-types --force
 
-      - name: Create or update PR
-        uses: peter-evans/create-pull-request@v6
-        with:
-          branch: auto/update-service-types
-          title: "Automated Update: Service Types Documentation"
-          body: "This PR was automatically generated because the JSON schema changed. The documentation has been regenerated accordingly."
-          base: main
-          labels: auto-update
+     # - name: Create or update PR
+     #   uses: peter-evans/create-pull-request@v6
+     #   with:
+     #     branch: auto/update-service-types
+     #     title: "Automated Update: Service Types Documentation"
+     #     body: "This PR was automatically generated because the JSON schema changed. The documentation has been regenerated accordingly."
+     #     base: main
+     #     labels: auto-update
