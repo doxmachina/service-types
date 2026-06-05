@@ -9,7 +9,7 @@
         "R": "Return"
     },
     "time_slot_type": {
-        "T": "time slot available",
+        "T": "Time slot available",
         "F": "Fixed time slot"
     },
     "slot_length": {
