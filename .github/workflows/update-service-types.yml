@@ -51,7 +51,7 @@ jobs:
 
       - name: Push branch
         run: |
-          git push origin auto/update-service-types --force
+          git push origin main
 
      # - name: Create or update PR
      #   uses: peter-evans/create-pull-request@v6
